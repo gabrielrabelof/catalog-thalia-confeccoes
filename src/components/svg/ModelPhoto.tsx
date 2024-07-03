@@ -1,9 +1,9 @@
 export function ModelPhoto() {
   return (
     <svg
-      width={650}
-      height={400}
-      viewBox="0 0 650 400"
+      width={515}
+      height={385}
+      viewBox="15 0 515 385"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"

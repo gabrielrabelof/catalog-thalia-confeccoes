@@ -2,6 +2,8 @@ import { useEffect } from 'react'
 
 import { Moon } from 'lucide-react'
 
+import { Wrapper } from '../Wrapper'
+
 export function Header() {
   useEffect(() => {
     const links = document.querySelectorAll('a[href^="#"]')
@@ -37,7 +39,7 @@ export function Header() {
 
   return (
     <header className="fixed left-0 right-0 top-0 z-50 bg-rose-950 py-6 shadow-xl">
-      <div className="mx-auto w-full max-w-100">
+      <Wrapper>
         <nav className="flex items-center justify-between text-stone-400">
           <a
             href="#inicio"
@@ -81,7 +83,7 @@ export function Header() {
             Entrar em contato
           </a>
         </nav>
-      </div>
+      </Wrapper>
     </header>
   )
 }

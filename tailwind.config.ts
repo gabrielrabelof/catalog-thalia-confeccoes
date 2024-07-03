@@ -11,7 +11,7 @@ const config: Config = {
       },
 
       maxWidth: {
-        '100': '72.5rem',
+        'custom-screen': '61rem',
       },
 
       fontFamily: {
@@ -28,6 +28,10 @@ const config: Config = {
 
       width: {
         'contact-photo': '530px',
+      },
+
+      fontSize: {
+        '7.5xl': ['5.4rem', '5.4rem'],
       },
     },
   },

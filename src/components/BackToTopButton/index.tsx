@@ -23,7 +23,7 @@ export function BackToTopButton() {
   return (
     <a
       href="#inicio"
-      className={`fixed bottom-10 right-10 z-50 transform rounded-full bg-salmon p-3 shadow-md transition-all duration-300 ease-in-out hover:bg-salmon-hover ${
+      className={`fixed bottom-10 right-12 z-50 transform rounded-full bg-salmon p-3 shadow-md transition-all duration-300 ease-in-out hover:bg-salmon-hover ${
         isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
       }`}
     >

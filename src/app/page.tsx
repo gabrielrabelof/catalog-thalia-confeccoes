@@ -6,12 +6,14 @@ import Image from 'next/image'
 import contacting from '../assets/woman-in-cellphone.png'
 
 import { Header } from '@/components/Header'
+import { Wrapper } from '@/components/Wrapper'
 import { ModelPhoto } from '@/components/svg/ModelPhoto'
 import { WhatsAppIcon } from '@/components/svg/WhatsAppIcon'
 import { Info } from '@/components/Info'
 import { Card } from '@/components/Card'
 import { Filter } from '@/components/Filter'
 import { ListProduct } from '@/components/ListProduct'
+import { BackToCatalogButton } from '@/components/BackToTopButton/BackToCatalogButton'
 import { BackToTopButton } from '@/components/BackToTopButton'
 
 export default function Home() {
@@ -21,40 +23,41 @@ export default function Home() {
 
       <section
         id="inicio"
-        className="w-full items-center bg-rose-950 py-32 pb-56"
+        className="w-full items-center bg-rose-950 pb-56 pt-32"
       >
-        <div className="mx-auto flex w-full max-w-100 justify-between">
-          <ModelPhoto />
-          <div>
-            <h1 className="font-playfair text-8xl text-rose-50">
-              O conforto <br />
-              para a <br />
-              sua noite
-            </h1>
-
-            <div className="mt-10 flex justify-between">
-              <a
-                href="#catalogo"
-                className="flex items-center gap-2 rounded-full border bg-salmon px-5 py-3 font-medium uppercase text-white transition duration-300 ease-in-out hover:bg-salmon-hover"
-              >
-                <BookImage className="h-5 w-5 text-white" />
-                <span>Visualizar Catálogo</span>
-              </a>
-              <a
-                href="#contato"
-                className="flex items-center gap-2 rounded-full border bg-salmon px-5 py-3 font-medium uppercase text-white transition duration-300 ease-in-out hover:bg-salmon-hover"
-              >
-                <WhatsAppIcon />
-                <span>Fale Conosco</span>
-              </a>
+        <Wrapper>
+          <div className="flex justify-between">
+            <ModelPhoto />
+            <div>
+              <h1 className="text-7.5xl font-playfair text-rose-50">
+                O conforto <br />
+                para a <br />
+                sua noite
+              </h1>
+              <div className="mt-10 flex justify-between">
+                <a
+                  href="#catalogo"
+                  className="flex items-center gap-2 rounded-full border bg-salmon px-5 py-3 font-medium uppercase text-white transition duration-300 ease-in-out hover:bg-salmon-hover"
+                >
+                  <BookImage className="h-5 w-5 text-white" />
+                  <span>Ver Catálogo</span>
+                </a>
+                <a
+                  href="#contato"
+                  className="flex items-center gap-2 rounded-full border bg-salmon px-5 py-3 font-medium uppercase text-white transition duration-300 ease-in-out hover:bg-salmon-hover"
+                >
+                  <WhatsAppIcon />
+                  <span>Fale Conosco</span>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
+        </Wrapper>
       </section>
       <Info />
 
       <section id="servicos" className="w-full bg-red-50 py-40">
-        <div className="mx-auto w-11/12 max-w-100">
+        <Wrapper>
           <div className="mb-16 flex flex-col gap-4 text-center">
             <h4 className="text-sm font-semibold uppercase text-salmon">
               Serviços
@@ -92,11 +95,11 @@ export default function Home() {
               description="Trabalhamos também com vendas no atacado, para mais informações, entre em contato conosco."
             />
           </div>
-        </div>
+        </Wrapper>
       </section>
 
       <section id="catalogo" className="w-full bg-rose-100 py-48">
-        <div className="mx-auto w-full max-w-100">
+        <Wrapper>
           <h3 className="text-center text-2xl font-semibold uppercase text-rose-900">
             Catálogo
           </h3>
@@ -123,23 +126,23 @@ export default function Home() {
               </div>
 
               <div className="flex flex-wrap gap-3">
-                <Filter model="Camisola" />
-                <Filter model="Pescador" />
-                <Filter model="Infantil" />
-                <Filter model="Longo" />
-                <Filter model="Baby Doll" />
-                <Filter model="Meia Estação" />
-                <Filter model="Conjuntos" />
+                <Filter model="Camisola" targetId="camisola" />
+                <Filter model="Pescador" targetId="pescador" />
+                <Filter model="Infantil" targetId="infantil" />
+                <Filter model="Longo" targetId="longo" />
+                <Filter model="Baby Doll" targetId="baby-doll" />
+                <Filter model="Meia Estação" targetId="meia-estacao" />
+                <Filter model="Conjuntos" targetId="conjuntos" />
               </div>
             </div>
 
             <ListProduct />
           </div>
-        </div>
+        </Wrapper>
       </section>
 
       <section id="contato" className="w-full bg-red-50 py-36">
-        <div className="mx-auto w-full max-w-100">
+        <Wrapper>
           <div className="flex items-center justify-between">
             <div className="flex flex-col gap-10">
               <h1 className="text-5xl font-bold leading-normal text-zinc-800">
@@ -187,11 +190,11 @@ export default function Home() {
               quality={100}
             />
           </div>
-        </div>
+        </Wrapper>
       </section>
 
       <section className="w-full bg-rose-950 py-14">
-        <div className="mx-auto w-full max-w-100">
+        <Wrapper>
           <a
             href="#inicio"
             className="mb-5 flex items-center gap-2 font-playfair text-3xl text-white"
@@ -203,9 +206,10 @@ export default function Home() {
             ©2024 Thalia Confecções. <br />
             Todos os direitos reservados.
           </p>
-        </div>
+        </Wrapper>
       </section>
 
+      <BackToCatalogButton />
       <BackToTopButton />
     </div>
   )

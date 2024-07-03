@@ -1,8 +1,10 @@
 import { Package, ShoppingBag } from 'lucide-react'
 
+import { Wrapper } from '../Wrapper'
+
 export function Info() {
   return (
-    <div className="mx-auto w-full max-w-100">
+    <Wrapper>
       <div className="-mt-28 flex items-center justify-evenly rounded-md border border-zinc-300 bg-rose-100 py-16 text-center">
         <div className="flex flex-col items-center gap-2">
           <Package className="h-14 w-14 text-zinc-800" />
@@ -23,6 +25,6 @@ export function Info() {
           <span className="font-light text-salmon">Vendemos online</span>
         </div>
       </div>
-    </div>
+    </Wrapper>
   )
 }
