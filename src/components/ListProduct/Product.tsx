@@ -57,10 +57,10 @@ export function Links({ MLLink, ShopeeLink }: ProductLinksProps) {
       <a
         href={MLLink}
         target="_blank"
-        className="bg-ml-logo group relative flex items-center justify-center rounded-lg p-1.5 shadow-md transition-all duration-500 hover:rounded-l-none hover:shadow-none"
+        className="group relative flex items-center justify-center rounded-lg bg-ml-logo p-1.5 shadow-md transition-all duration-500 hover:rounded-l-none hover:shadow-none"
       >
         <MercadoLivreLogo />
-        <span className="bg-ml-logo absolute right-full top-1/2 -z-50 min-w-max -translate-y-1/2 transform rounded-l-lg p-2.5 text-xs font-semibold text-slate-800 opacity-0 transition-all duration-500 group-hover:z-50 group-hover:translate-x-0 group-hover:opacity-100">
+        <span className="absolute right-full top-1/2 -z-50 min-w-max -translate-y-1/2 transform rounded-l-lg bg-ml-logo p-2.5 text-xs font-semibold text-slate-800 opacity-0 transition-all duration-500 group-hover:z-50 group-hover:translate-x-0 group-hover:opacity-100">
           Ver no Mercado Livre
         </span>
       </a>
