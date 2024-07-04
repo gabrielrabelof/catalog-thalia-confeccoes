@@ -1,6 +1,9 @@
 'use client'
 
+import { useState } from 'react'
+
 import { BookImage, Search, MapPin, Instagram, Moon } from 'lucide-react'
+import clsx from 'clsx'
 
 import Image from 'next/image'
 import contacting from '../assets/woman-in-cellphone.png'
@@ -17,6 +20,41 @@ import { BackToCatalogButton } from '@/components/BackToTopButton/BackToCatalogB
 import { BackToTopButton } from '@/components/BackToTopButton'
 
 export default function Home() {
+  const [searchValue, setSearchValue] = useState('')
+  const [catalog, setCatalog] = useState(true)
+
+  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const value = event.target.value
+
+    if (/^\d*$/.test(value)) {
+      setSearchValue(value)
+    }
+  }
+
+  function handleSearch() {
+    if (searchValue) {
+      const element = document.getElementById(searchValue)
+      if (element) {
+        const yOffset = -200
+        const yPosition =
+          element.getBoundingClientRect().top + window.pageYOffset + yOffset
+        window.scrollTo({ top: yPosition, behavior: 'smooth' })
+      } else {
+        alert('Ref. não encontrada!')
+      }
+    }
+
+    setSearchValue('')
+  }
+
+  function handleCatalogFemale() {
+    setCatalog(true)
+  }
+
+  function handleCatalogMale() {
+    setCatalog(false)
+  }
+
   return (
     <div className="min-h-screen w-full bg-red-50">
       <Header />
@@ -29,7 +67,7 @@ export default function Home() {
           <div className="flex justify-between">
             <ModelPhoto />
             <div>
-              <h1 className="text-7.5xl font-playfair text-rose-50">
+              <h1 className="font-playfair text-7.5xl text-rose-50">
                 O conforto <br />
                 para a <br />
                 sua noite
@@ -71,34 +109,34 @@ export default function Home() {
           <div className="flex flex-wrap gap-10">
             <Card
               title="Modelos Variados"
-              description="Os pijamas possuem cores, estampas e tamanhos variados para atender a seu gosto e necessidade."
+              description="Os nossos pijamas possuem cores, estampas e tamanhos variados."
             />
             <Card
               title="Grade de Tamanhos"
               description="Modelos adulto e infantil dos tamanhos:
-              P ao GG contendo também a opção de tamanho Plus Size."
+              P ao GG e a opção de tamanho Plus Size."
             />
             <Card
               title="Temos Garantia"
               description="Disponibilizamos para os nossos clientes garantia de até 7 dias úteis para possíveis trocas."
             />
             <Card
-              title="Produtos de Qualidade"
-              description="Pijamas que oferecem muito conforto e elegância, além de não desbotar, não dar bolinha e não perder a estampa."
+              title="Tecido de Qualidade"
+              description="Nossos pijamas não desbotam, não dão bolinha e não perdem a estampa na lavagem."
             />
             <Card
               title="Vendas Online"
-              description="Clique nos botões com o ícone do Mercado Livre ou Shopee para mais detalhes dos nossos pijamas."
+              description="Clique nos botões com o ícone do Mercado Livre ou Shopee para mais detalhes."
             />
             <Card
               title="Vendas no Atacado"
-              description="Trabalhamos também com vendas no atacado, para mais informações, entre em contato conosco."
+              description="Trabalhamos com vendas no atacado, para mais informações, entre em contato conosco."
             />
           </div>
         </Wrapper>
       </section>
 
-      <section id="catalogo" className="w-full bg-rose-100 py-48">
+      <section id="catalogo" className="w-full bg-rose-100 pb-12 pt-48">
         <Wrapper>
           <h3 className="text-center text-2xl font-semibold uppercase text-rose-900">
             Catálogo
@@ -106,26 +144,64 @@ export default function Home() {
 
           <div className="mb-32 mt-16">
             <div className="mb-32 flex flex-col gap-10 rounded-3xl bg-zinc-50 px-20 py-14">
-              <div className="flex justify-between">
-                <div className="flex items-center gap-2 rounded-lg border border-zinc-300 bg-white p-2">
-                  <div>
-                    <Search className="h-5 w-5 text-zinc-500" />
+              <div>
+                <h4 className="text-md font-semibold text-zinc-700">
+                  Pesquisar Ref.
+                </h4>
+                <div className="mt-3 flex justify-between">
+                  <div className="flex items-center gap-2 rounded-lg border border-zinc-300 bg-white px-3 py-2 focus-within:border-rose-200 focus-within:ring-2 focus-within:ring-rose-100">
+                    <input
+                      className="outline-none"
+                      type="text"
+                      placeholder="Ex: 020"
+                      value={searchValue}
+                      onChange={handleInputChange}
+                      onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+                    />
+
+                    <button
+                      onClick={handleSearch}
+                      className="border-l border-zinc-300 pl-2"
+                    >
+                      <Search className="h-5 w-5 text-zinc-500" />
+                    </button>
                   </div>
 
-                  <input type="text" placeholder="Pesquisar" />
-                </div>
+                  <div className="flex gap-10">
+                    <button onClick={handleCatalogFemale}>
+                      <span
+                        className={clsx(
+                          'border-b-2 pb-2 text-lg font-semibold uppercase transition duration-300 ease-in-out',
+                          {
+                            'text-zinc-500': !catalog,
+                            'text-rose-900': catalog,
+                            'border-b-rose-900': catalog,
+                          },
+                        )}
+                      >
+                        Feminino
+                      </span>
+                    </button>
 
-                <div className="flex gap-10">
-                  <button className="text-xl font-semibold uppercase text-zinc-500 hover:border-b-2 hover:border-b-rose-900 hover:text-rose-900">
-                    Feminino
-                  </button>
-                  <button className="text-xl font-semibold uppercase text-zinc-500 hover:border-b-2 hover:border-b-sky-900 hover:text-sky-900">
-                    Masculino
-                  </button>
+                    <button onClick={handleCatalogMale}>
+                      <span
+                        className={clsx(
+                          'border-b-2 pb-2 text-lg font-semibold uppercase transition duration-300 ease-in-out',
+                          {
+                            'text-zinc-500': catalog,
+                            'text-sky-900': !catalog,
+                            'border-b-sky-900': !catalog,
+                          },
+                        )}
+                      >
+                        Masculino
+                      </span>
+                    </button>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-3">
+              <div className="mt-4 flex flex-wrap gap-2">
                 <Filter model="Camisola" targetId="camisola" />
                 <Filter model="Pescador" targetId="pescador" />
                 <Filter model="Infantil" targetId="infantil" />

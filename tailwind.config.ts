@@ -23,11 +23,11 @@ const config: Config = {
       },
 
       height: {
-        'contact-photo': '475px',
+        'contact-photo': '425px',
       },
 
       width: {
-        'contact-photo': '530px',
+        'contact-photo': '475px',
       },
 
       fontSize: {

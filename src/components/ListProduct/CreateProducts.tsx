@@ -4,7 +4,7 @@ import * as Product from '@/components/ListProduct/Product'
 
 export function createDefaultProduct(photoPath: StaticImageData, pRef: string) {
   return (
-    <Product.Root>
+    <Product.Root id={pRef}>
       <Product.Photo path={photoPath} />
       <Product.Info>
         <Product.Ref productRef={`Ref. ${pRef}`} />
@@ -20,7 +20,7 @@ export function createOnlineProduct(
   ShopeeLink: string,
 ) {
   return (
-    <Product.Root>
+    <Product.Root id={pRef}>
       <Product.Photo path={photoPath} />
       <Product.Info>
         <Product.Ref productRef={`Ref. ${pRef}`} />

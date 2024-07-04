@@ -10,7 +10,7 @@ export function Filter({ model, targetId }: Props) {
     const element = document.getElementById(targetId)
 
     if (element) {
-      const yOffset = -100 // Ajuste conforme necessário
+      const yOffset = -100
       const yPosition =
         element.getBoundingClientRect().top + window.pageYOffset + yOffset
       window.scrollTo({ top: yPosition, behavior: 'smooth' })
