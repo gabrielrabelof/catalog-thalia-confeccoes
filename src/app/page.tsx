@@ -61,13 +61,13 @@ export default function Home() {
 
       <section
         id="inicio"
-        className="w-full items-center bg-rose-950 pb-56 pt-32"
+        className="w-full items-center bg-rose-950 pb-56 pt-28 lg:pt-36"
       >
         <Wrapper>
-          <div className="flex justify-between">
+          <div className="flex flex-col justify-between gap-6 lg:flex-row">
             <ModelPhoto />
             <div>
-              <h1 className="font-playfair text-7.5xl text-rose-50">
+              <h1 className="font-playfair text-6xl text-rose-50 lg:text-7.5xl">
                 O conforto <br />
                 para a <br />
                 sua noite
@@ -75,14 +75,14 @@ export default function Home() {
               <div className="mt-10 flex justify-between">
                 <a
                   href="#catalogo"
-                  className="flex items-center gap-2 rounded-full border bg-salmon px-5 py-3 font-medium uppercase text-white transition duration-300 ease-in-out hover:bg-salmon-hover"
+                  className="flex items-center gap-2 rounded-full border bg-salmon px-4 py-3 text-xs font-medium uppercase text-white transition duration-300 ease-in-out hover:bg-salmon-hover lg:px-5 lg:py-3 lg:text-base"
                 >
-                  <BookImage className="h-5 w-5 text-white" />
+                  <BookImage className="h-4 w-4 text-white lg:h-5 lg:w-5" />
                   <span>Ver Catálogo</span>
                 </a>
                 <a
                   href="#contato"
-                  className="flex items-center gap-2 rounded-full border bg-salmon px-5 py-3 font-medium uppercase text-white transition duration-300 ease-in-out hover:bg-salmon-hover"
+                  className="flex items-center gap-2 rounded-full border bg-salmon px-4 py-3 text-xs font-medium uppercase text-white transition duration-300 ease-in-out hover:bg-salmon-hover lg:px-5 lg:text-base"
                 >
                   <WhatsAppIcon />
                   <span>Fale Conosco</span>
@@ -97,16 +97,16 @@ export default function Home() {
       <section id="servicos" className="w-full bg-red-50 py-40">
         <Wrapper>
           <div className="mb-16 flex flex-col gap-4 text-center">
-            <h4 className="text-sm font-semibold uppercase text-salmon">
+            <h4 className="text-xs font-semibold uppercase text-salmon lg:text-sm">
               Serviços
             </h4>
-            <h1 className="text-4xl font-bold leading-normal text-zinc-900">
+            <h1 className="text-2xl font-bold leading-normal text-zinc-900 lg:text-4xl">
               Como trabalhamos com <br />
               os nossos produtos?
             </h1>
           </div>
 
-          <div className="flex flex-wrap gap-10">
+          <div className="flex flex-col flex-wrap gap-10 lg:flex-row">
             <Card
               title="Modelos Variados"
               description="Os nossos pijamas possuem cores, estampas e tamanhos variados."
@@ -118,7 +118,7 @@ export default function Home() {
             />
             <Card
               title="Temos Garantia"
-              description="Disponibilizamos para os nossos clientes garantia de até 7 dias úteis para possíveis trocas."
+              description="Disponibilizamos para nossos clientes garantia de até 7 dias úteis para possíveis trocas."
             />
             <Card
               title="Tecido de Qualidade"
@@ -130,7 +130,7 @@ export default function Home() {
             />
             <Card
               title="Vendas no Atacado"
-              description="Trabalhamos com vendas no atacado, para mais informações, entre em contato conosco."
+              description="Trabalhamos com vendas no atacado, para mais informações, entre em contato."
             />
           </div>
         </Wrapper>
@@ -138,66 +138,68 @@ export default function Home() {
 
       <section id="catalogo" className="w-full bg-rose-100 pb-12 pt-48">
         <Wrapper>
-          <h3 className="text-center text-2xl font-semibold uppercase text-rose-900">
+          <h3 className="text-center text-xl font-semibold uppercase text-rose-900 lg:text-2xl">
             Catálogo
           </h3>
 
           <div className="mb-32 mt-16">
-            <div className="mb-32 flex flex-col gap-10 rounded-3xl bg-zinc-50 px-20 py-14">
-              <div>
-                <h4 className="text-md font-semibold text-zinc-700">
-                  Pesquisar Ref.
-                </h4>
-                <div className="mt-3 flex justify-between">
-                  <div className="flex items-center gap-2 rounded-lg border border-zinc-300 bg-white px-3 py-2 focus-within:border-rose-200 focus-within:ring-2 focus-within:ring-rose-100">
-                    <input
-                      className="outline-none"
-                      type="text"
-                      placeholder="Ex: 020"
-                      value={searchValue}
-                      onChange={handleInputChange}
-                      onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-                    />
+            <div className="mb-32 flex flex-col items-center gap-10 rounded-3xl bg-zinc-50 px-8 py-10 lg:items-start lg:px-20 lg:py-14">
+              <div className="flex flex-col gap-16 lg:w-full lg:flex-row lg:justify-between">
+                <div>
+                  <h4 className="lg:text-md text-base font-semibold text-zinc-700">
+                    Pesquisar Ref.
+                  </h4>
+                  <div className="mt-2 flex justify-between">
+                    <div className="flex rounded-lg border border-zinc-300 bg-white px-3 py-2 focus-within:border-rose-200 focus-within:ring-2 focus-within:ring-rose-100">
+                      <input
+                        className="outline-none"
+                        type="text"
+                        placeholder="Ex: 020"
+                        value={searchValue}
+                        onChange={handleInputChange}
+                        onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+                      />
 
-                    <button
-                      onClick={handleSearch}
-                      className="border-l border-zinc-300 pl-2"
+                      <button
+                        onClick={handleSearch}
+                        className="border-l border-zinc-300 pl-2"
+                      >
+                        <Search className="h-5 w-5 text-zinc-500" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex justify-around lg:gap-10">
+                  <button onClick={handleCatalogFemale}>
+                    <span
+                      className={clsx(
+                        'border-b-2 pb-2 text-base font-semibold uppercase transition duration-300 ease-in-out lg:text-lg',
+                        {
+                          'text-zinc-500': !catalog,
+                          'text-rose-900': catalog,
+                          'border-b-rose-900': catalog,
+                        },
+                      )}
                     >
-                      <Search className="h-5 w-5 text-zinc-500" />
-                    </button>
-                  </div>
+                      Feminino
+                    </span>
+                  </button>
 
-                  <div className="flex gap-10">
-                    <button onClick={handleCatalogFemale}>
-                      <span
-                        className={clsx(
-                          'border-b-2 pb-2 text-lg font-semibold uppercase transition duration-300 ease-in-out',
-                          {
-                            'text-zinc-500': !catalog,
-                            'text-rose-900': catalog,
-                            'border-b-rose-900': catalog,
-                          },
-                        )}
-                      >
-                        Feminino
-                      </span>
-                    </button>
-
-                    <button onClick={handleCatalogMale}>
-                      <span
-                        className={clsx(
-                          'border-b-2 pb-2 text-lg font-semibold uppercase transition duration-300 ease-in-out',
-                          {
-                            'text-zinc-500': catalog,
-                            'text-sky-900': !catalog,
-                            'border-b-sky-900': !catalog,
-                          },
-                        )}
-                      >
-                        Masculino
-                      </span>
-                    </button>
-                  </div>
+                  <button onClick={handleCatalogMale}>
+                    <span
+                      className={clsx(
+                        'border-b-2 pb-2 text-base font-semibold uppercase transition duration-300 ease-in-out lg:text-lg',
+                        {
+                          'text-zinc-500': catalog,
+                          'text-sky-900': !catalog,
+                          'border-b-sky-900': !catalog,
+                        },
+                      )}
+                    >
+                      Masculino
+                    </span>
+                  </button>
                 </div>
               </div>
 
@@ -219,9 +221,9 @@ export default function Home() {
 
       <section id="contato" className="w-full bg-red-50 py-36">
         <Wrapper>
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col items-center justify-between gap-6 lg:flex-row">
             <div className="flex flex-col gap-10">
-              <h1 className="text-5xl font-bold leading-normal text-zinc-800">
+              <h1 className="text-4xl font-bold leading-normal text-zinc-800 lg:text-5xl">
                 Entre em contato <br />
                 com a gente!
               </h1>
@@ -261,7 +263,7 @@ export default function Home() {
             </div>
             <Image
               src={contacting}
-              className="h-contact-photo w-contact-photo rounded-md"
+              className="w-full rounded-md lg:h-contact-photo lg:w-contact-photo"
               alt=""
               quality={100}
             />

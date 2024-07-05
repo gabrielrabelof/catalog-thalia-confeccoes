@@ -1,13 +1,11 @@
 export function ModelPhoto() {
   return (
     <svg
-      width={515}
-      height={385}
       viewBox="15 0 515 385"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      className="rounded-md"
+      className="w-full rounded-md lg:h-model-photo lg:w-model-photo"
     >
       <path fill="url(#pattern0_368_15)" d="M0 0H650V400H0z" />
       <defs>

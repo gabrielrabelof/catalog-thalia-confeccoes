@@ -28,13 +28,13 @@ import ref019 from '@/assets/pijamas/conjunto/conjunto-ref019.png'
 
 export function ListProduct() {
   return (
-    <div className="flex flex-col gap-32">
+    <div className="flex flex-col gap-32 divide-y divide-zinc-300">
       <div id="camisola">
-        <h4 className="font-playfair text-6xl font-semibold text-rose-900">
+        <h4 className="font-playfair text-5xl font-semibold text-rose-900 lg:text-6xl">
           Camisola
         </h4>
 
-        <div className="mt-8 flex flex-wrap gap-6">
+        <div className="mt-8 flex flex-wrap gap-5">
           {createDefaultProduct(ref001, '001')}
           {createOnlineProduct(
             ref002,
@@ -52,11 +52,11 @@ export function ListProduct() {
       </div>
 
       <div id="pescador">
-        <h4 className="font-playfair text-6xl font-semibold text-rose-900">
+        <h4 className="mt-28 font-playfair text-5xl font-semibold text-rose-900 lg:text-6xl">
           Pescador
         </h4>
 
-        <div className="mt-8 flex flex-wrap gap-6">
+        <div className="mt-8 flex flex-wrap gap-5">
           {createDefaultProduct(ref004, '004')}
           {createOnlineProduct(
             ref005,
@@ -86,31 +86,31 @@ export function ListProduct() {
       </div>
 
       <div id="infantil">
-        <h4 className="font-playfair text-6xl font-semibold text-rose-900">
+        <h4 className="mt-28 font-playfair text-5xl font-semibold text-rose-900 lg:text-6xl">
           Infantil
         </h4>
 
-        <div className="mt-8 flex flex-wrap gap-6">
+        <div className="mt-8 flex flex-wrap gap-5">
           {createDefaultProduct(ref039, '039')}
         </div>
       </div>
 
       <div id="longo">
-        <h4 className="font-playfair text-6xl font-semibold text-rose-900">
+        <h4 className="mt-28 font-playfair text-5xl font-semibold text-rose-900 lg:text-6xl">
           Longo
         </h4>
 
-        <div className="mt-8 flex flex-wrap gap-6">
+        <div className="mt-8 flex flex-wrap gap-5">
           {createDefaultProduct(ref009, '009')}
         </div>
       </div>
 
       <div id="baby-doll">
-        <h4 className="font-playfair text-6xl font-semibold text-rose-900">
+        <h4 className="mt-28 font-playfair text-5xl font-semibold text-rose-900 lg:text-6xl">
           Baby Doll
         </h4>
 
-        <div className="mt-8 flex flex-wrap gap-6">
+        <div className="mt-8 flex flex-wrap gap-5">
           {createOnlineProduct(
             ref020,
             '020',
@@ -121,11 +121,11 @@ export function ListProduct() {
       </div>
 
       <div id="meia-estacao">
-        <h4 className="font-playfair text-6xl font-semibold text-rose-900">
+        <h4 className="mt-28 font-playfair text-5xl font-semibold text-rose-900 lg:text-6xl">
           Meia Estação
         </h4>
 
-        <div className="mt-8 flex flex-wrap gap-6">
+        <div className="mt-8 flex flex-wrap gap-5">
           {createOnlineProduct(
             ref010,
             '010',
@@ -167,11 +167,11 @@ export function ListProduct() {
       </div>
 
       <div id="conjuntos">
-        <h4 className="font-playfair text-6xl font-semibold text-rose-900">
+        <h4 className="mt-28 font-playfair text-5xl font-semibold text-rose-900 lg:text-6xl">
           Conjuntos
         </h4>
 
-        <div className="mt-8 flex flex-wrap gap-6">
+        <div className="mt-8 flex flex-wrap gap-5">
           {createOnlineProduct(
             ref019,
             '019',

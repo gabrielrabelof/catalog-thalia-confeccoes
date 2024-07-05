@@ -11,7 +11,8 @@ const config: Config = {
       },
 
       maxWidth: {
-        'custom-screen': '61rem',
+        'custom-screen-lg': '60rem',
+        'custom-screen-sm': '21rem',
       },
 
       fontFamily: {
@@ -23,15 +24,18 @@ const config: Config = {
       },
 
       height: {
+        'model-photo': '385px',
         'contact-photo': '425px',
+        'product-photo': '300px',
       },
 
       width: {
+        'model-photo': '515px',
         'contact-photo': '475px',
       },
 
       fontSize: {
-        '7.5xl': ['5.4rem', '5.4rem'],
+        '7.5xl': ['5.3rem', '5.3rem'],
       },
     },
   },

@@ -10,7 +10,7 @@ export function Filter({ model, targetId }: Props) {
     const element = document.getElementById(targetId)
 
     if (element) {
-      const yOffset = -100
+      const yOffset = -20
       const yPosition =
         element.getBoundingClientRect().top + window.pageYOffset + yOffset
       window.scrollTo({ top: yPosition, behavior: 'smooth' })
@@ -20,9 +20,11 @@ export function Filter({ model, targetId }: Props) {
   return (
     <button
       onClick={handleClick}
-      className="rounded-full border border-zinc-400 bg-rose-900 px-8 py-1.5 transition duration-300 ease-in-out hover:bg-rose-800"
+      className="rounded-full border border-zinc-400 bg-rose-900 px-4 py-1 transition duration-300 ease-in-out hover:bg-rose-800 lg:px-8 lg:py-1.5"
     >
-      <span className="text-sm font-semibold text-white">{model}</span>
+      <span className="text-xs font-semibold text-white lg:text-sm">
+        {model}
+      </span>
     </button>
   )
 }

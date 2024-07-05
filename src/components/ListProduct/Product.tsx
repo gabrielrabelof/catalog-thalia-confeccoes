@@ -17,7 +17,7 @@ export function Photo({ path }: ProductImageProps) {
   return (
     <Image
       src={path}
-      className="h-80 w-56 rounded-t-lg shadow-sm"
+      className="h-product-photo w-52 rounded-t-lg shadow-sm"
       alt=""
       quality={95}
       loading="lazy"
