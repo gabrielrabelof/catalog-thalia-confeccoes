@@ -1,5 +1,7 @@
 import { ComponentProps } from 'react'
+
 import Image, { StaticImageData } from 'next/image'
+
 import { MercadoLivreLogo } from '../svg/MercadoLivreLogo'
 import { ShopeeLogo } from '../svg/ShopeeLogo'
 

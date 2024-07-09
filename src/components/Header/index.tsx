@@ -58,10 +58,10 @@ export function Header() {
 
   return (
     <header className="fixed left-0 right-0 top-0 z-50 bg-rose-950 py-6 shadow-xl transition-all duration-500 ease-in-out">
-      <Wrapper id="wrapper-header">
+      <Wrapper>
         <div
           className={clsx('flex flex-col justify-between lg:flex-row', {
-            'gap-16': menuState,
+            'z-50 gap-16': menuState,
           })}
         >
           <div className="flex w-full items-center justify-between lg:w-fit">

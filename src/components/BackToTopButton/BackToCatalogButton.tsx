@@ -1,5 +1,3 @@
-'use client'
-
 import { useEffect, useState } from 'react'
 
 import { BookImage } from 'lucide-react'
@@ -32,7 +30,7 @@ export function BackToCatalogButton() {
     <a
       href="#catalogo"
       className={clsx(
-        'fixed -right-10 bottom-20 z-50 translate-y-0 transform rounded-full bg-rose-900 p-3 opacity-0 shadow-md transition-all duration-300 ease-in-out lg:bottom-32 lg:right-0 lg:hover:bg-rose-800',
+        'fixed -right-10 bottom-20 z-40 translate-y-0 transform rounded-full bg-rose-900 p-3 opacity-0 shadow-md transition-all duration-300 ease-in-out lg:bottom-32 lg:right-0 lg:hover:bg-rose-800',
         {
           'opacity-100': isVisible,
           '-translate-x-14': isVisible,

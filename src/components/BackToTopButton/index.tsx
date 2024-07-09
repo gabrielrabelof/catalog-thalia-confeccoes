@@ -1,5 +1,3 @@
-'use client'
-
 import { useEffect, useState } from 'react'
 
 import { ArrowUp } from 'lucide-react'
@@ -28,7 +26,7 @@ export function BackToTopButton() {
     <a
       href="#inicio"
       className={clsx(
-        'fixed -right-10 bottom-20 z-50 translate-y-16 transform rounded-full bg-salmon p-3 opacity-0 shadow-md transition-all duration-300 ease-in-out lg:bottom-28 lg:right-0 lg:hover:bg-salmon-hover',
+        'fixed -right-10 bottom-20 z-40 translate-y-16 transform rounded-full bg-salmon p-3 opacity-0 shadow-md transition-all duration-300 ease-in-out lg:bottom-28 lg:right-0 lg:hover:bg-salmon-hover',
         {
           '-translate-x-14': isVisible,
           'opacity-100': isVisible,
