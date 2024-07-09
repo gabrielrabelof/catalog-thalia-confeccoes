@@ -1,3 +1,5 @@
+'use client'
+
 import { ComponentProps } from 'react'
 
 type Props = ComponentProps<'button'> & {
@@ -7,20 +9,27 @@ type Props = ComponentProps<'button'> & {
 
 export function Filter({ model, targetId }: Props) {
   function handleClick() {
-    const element = document.getElementById(targetId)
+    if (typeof window !== 'undefined') {
+      const element = document.getElementById(targetId)
 
-    if (element) {
-      const yOffset = -20
-      const yPosition =
-        element.getBoundingClientRect().top + window.pageYOffset + yOffset
-      window.scrollTo({ top: yPosition, behavior: 'smooth' })
+      if (element) {
+        let yOffset = -120
+
+        if (window.screen.width <= 1024) {
+          yOffset = -20
+        }
+
+        const yPosition =
+          element.getBoundingClientRect().top + window.pageYOffset + yOffset
+        window.scrollTo({ top: yPosition, behavior: 'smooth' })
+      }
     }
   }
 
   return (
     <button
       onClick={handleClick}
-      className="rounded-full border border-zinc-400 bg-rose-900 px-4 py-1 transition duration-300 ease-in-out hover:bg-rose-800 lg:px-8 lg:py-1.5"
+      className="rounded-full border border-zinc-400 bg-rose-900 px-4 py-1 transition duration-300 ease-in-out lg:px-8 lg:py-1.5 lg:hover:bg-rose-800"
     >
       <span className="text-xs font-semibold text-white lg:text-sm">
         {model}

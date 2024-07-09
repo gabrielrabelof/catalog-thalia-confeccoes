@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Moon } from 'lucide-react'
+
 import clsx from 'clsx'
+
 import { Wrapper } from '../Wrapper'
 
 export function Header() {
@@ -55,17 +57,14 @@ export function Header() {
   }, [])
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-50 bg-rose-950 py-6 shadow-xl">
-      <Wrapper>
-        <nav
-          className={clsx(
-            'flex flex-col gap-12 text-center text-stone-400 lg:h-min lg:flex-row lg:items-center lg:justify-between',
-            {
-              'h-screen': menuState,
-            },
-          )}
+    <header className="fixed left-0 right-0 top-0 z-50 bg-rose-950 py-6 shadow-xl transition-all duration-500 ease-in-out">
+      <Wrapper id="wrapper-header">
+        <div
+          className={clsx('flex flex-col justify-between lg:flex-row', {
+            'gap-16': menuState,
+          })}
         >
-          <div className="flex items-center justify-between">
+          <div className="flex w-full items-center justify-between lg:w-fit">
             <a
               onClick={menuState ? handleMenu : () => null}
               href="#inicio"
@@ -79,63 +78,94 @@ export function Header() {
               onClick={handleMenu}
               className="flex flex-col gap-1 lg:hidden"
             >
-              <div className="h-0.5 w-5 border bg-white" />
-              <div className="h-0.5 w-5 border bg-white" />
-              <div className="h-0.5 w-5 border bg-white" />
+              <div
+                className={clsx(
+                  'h-0.5 w-5 border bg-white transition-all duration-300 ease-in-out',
+                  {
+                    'translate-y-1 rotate-45': menuState,
+                  },
+                )}
+              />
+              <div
+                className={clsx(
+                  'h-0.5 w-5 border bg-white transition-all duration-300 ease-in-out',
+                  {
+                    'opacity-0': menuState,
+                  },
+                )}
+              />
+              <div
+                className={clsx(
+                  'h-0.5 w-5 border bg-white transition-all duration-300 ease-in-out',
+                  {
+                    '-translate-y-2 -rotate-45': menuState,
+                  },
+                )}
+              />
             </button>
           </div>
 
-          <ul
+          <nav
             className={clsx(
-              'mt-8 flex-col gap-12 lg:mt-0 lg:flex lg:flex-row',
+              'flex flex-col gap-16 text-center transition-all duration-500 ease-in-out lg:h-min lg:flex-row lg:items-center lg:justify-between lg:gap-32',
               {
-                flex: menuState,
-                hidden: !menuState,
+                'h-screen translate-y-0': menuState,
+                'translate-y-full lg:translate-y-0': !menuState,
               },
             )}
           >
-            <li>
-              <a
-                onClick={menuState ? handleMenu : () => null}
-                href="#inicio"
-                className="relative pb-2 font-medium text-white after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:scale-x-0 after:bg-white after:transition-transform after:duration-300 after:ease-in-out hover:text-white hover:after:scale-x-100 lg:font-normal lg:text-zinc-400"
-              >
-                Início
-              </a>
-            </li>
-            <li>
-              <a
-                onClick={menuState ? handleMenu : () => null}
-                href="#catalogo"
-                className="relative pb-2 font-medium text-white after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:scale-x-0 after:bg-white after:transition-transform after:duration-300 after:ease-in-out hover:text-white hover:after:scale-x-100 lg:font-normal lg:text-zinc-400"
-              >
-                Catálogo
-              </a>
-            </li>
-            <li>
-              <a
-                onClick={menuState ? handleMenu : () => null}
-                href="#servicos"
-                className="relative pb-2 font-medium text-white after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:scale-x-0 after:bg-white after:transition-transform after:duration-300 after:ease-in-out hover:text-white hover:after:scale-x-100 lg:font-normal lg:text-zinc-400"
-              >
-                Serviços
-              </a>
-            </li>
-          </ul>
-          <a
-            onClick={menuState ? handleMenu : () => null}
-            href="#contato"
-            className={clsx(
-              'w-fit self-center rounded-full border bg-white px-6 py-2.5 text-sm font-semibold uppercase text-rose-950 transition duration-300 ease-in-out lg:block lg:bg-rose-950 lg:text-white lg:hover:border-black lg:hover:bg-rose-50 lg:hover:text-rose-950',
-              {
-                block: menuState,
-                hidden: !menuState,
-              },
-            )}
-          >
-            Entrar em contato
-          </a>
-        </nav>
+            <ul
+              className={clsx(
+                'mt-8 flex-col gap-12 lg:mt-0 lg:flex lg:flex-row',
+                {
+                  flex: menuState,
+                  hidden: !menuState,
+                },
+              )}
+            >
+              <li>
+                <a
+                  onClick={menuState ? handleMenu : () => null}
+                  href="#inicio"
+                  className="relative pb-2 text-xl font-medium text-white after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:scale-x-0 after:bg-white after:transition-transform after:duration-300 after:ease-in-out hover:text-white hover:after:scale-x-100 lg:text-base lg:font-normal lg:text-zinc-400"
+                >
+                  Início
+                </a>
+              </li>
+              <li>
+                <a
+                  onClick={menuState ? handleMenu : () => null}
+                  href="#catalogo"
+                  className="relative pb-2 text-xl font-medium text-white after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:scale-x-0 after:bg-white after:transition-transform after:duration-300 after:ease-in-out hover:text-white hover:after:scale-x-100 lg:text-base lg:font-normal lg:text-zinc-400"
+                >
+                  Catálogo
+                </a>
+              </li>
+              <li>
+                <a
+                  onClick={menuState ? handleMenu : () => null}
+                  href="#servicos"
+                  className="relative pb-2 text-xl font-medium text-white after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:scale-x-0 after:bg-white after:transition-transform after:duration-300 after:ease-in-out hover:text-white hover:after:scale-x-100 lg:text-base lg:font-normal lg:text-zinc-400"
+                >
+                  Serviços
+                </a>
+              </li>
+            </ul>
+            <a
+              onClick={menuState ? handleMenu : () => null}
+              href="#contato"
+              className={clsx(
+                'w-fit self-center rounded-full border bg-white px-6 py-2.5 text-sm font-semibold uppercase text-rose-950 transition duration-300 ease-in-out lg:block lg:bg-rose-950 lg:text-white lg:hover:border-black lg:hover:bg-rose-50 lg:hover:text-rose-950',
+                {
+                  block: menuState,
+                  hidden: !menuState,
+                },
+              )}
+            >
+              Entrar em contato
+            </a>
+          </nav>
+        </div>
       </Wrapper>
     </header>
   )

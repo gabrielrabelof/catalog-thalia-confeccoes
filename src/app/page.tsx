@@ -1,7 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
+import ScrollReveal from 'scrollreveal'
 import { BookImage, Search, MapPin, Instagram, Moon } from 'lucide-react'
 import clsx from 'clsx'
 
@@ -31,13 +32,20 @@ export default function Home() {
     }
   }
 
+  function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
+    if (event.key === 'Enter') {
+      handleSearch()
+      event.currentTarget.blur()
+    }
+  }
+
   function handleSearch() {
-    if (searchValue) {
+    if (typeof window !== 'undefined' && searchValue) {
       const element = document.getElementById(searchValue)
       if (element) {
         const yOffset = -200
         const yPosition =
-          element.getBoundingClientRect().top + window.pageYOffset + yOffset
+          element.getBoundingClientRect().top + window.scrollY + yOffset
         window.scrollTo({ top: yPosition, behavior: 'smooth' })
       } else {
         alert('Ref. não encontrada!')
@@ -54,6 +62,16 @@ export default function Home() {
   function handleCatalogMale() {
     setCatalog(false)
   }
+
+  useEffect(() => {
+    const scrollReveal = ScrollReveal({
+      origin: 'top',
+      distance: '30px',
+      duration: 700,
+    })
+
+    scrollReveal.reveal('#wrapper')
+  }, [])
 
   return (
     <div className="min-h-screen w-full bg-red-50">
@@ -75,14 +93,14 @@ export default function Home() {
               <div className="mt-10 flex justify-between">
                 <a
                   href="#catalogo"
-                  className="flex items-center gap-2 rounded-full border bg-salmon px-4 py-3 text-xs font-medium uppercase text-white transition duration-300 ease-in-out hover:bg-salmon-hover lg:px-5 lg:py-3 lg:text-base"
+                  className="flex items-center gap-2 rounded-full border bg-salmon p-3 text-sm font-medium uppercase text-white transition duration-300 ease-in-out lg:px-5 lg:py-3 lg:text-base lg:hover:bg-salmon-hover"
                 >
-                  <BookImage className="h-4 w-4 text-white lg:h-5 lg:w-5" />
+                  <BookImage className="h-icon w-5 text-white lg:h-5 lg:w-5" />
                   <span>Ver Catálogo</span>
                 </a>
                 <a
                   href="#contato"
-                  className="flex items-center gap-2 rounded-full border bg-salmon px-4 py-3 text-xs font-medium uppercase text-white transition duration-300 ease-in-out hover:bg-salmon-hover lg:px-5 lg:text-base"
+                  className="flex items-center gap-2 rounded-full border bg-salmon p-3 text-sm font-medium uppercase text-white transition duration-300 ease-in-out lg:px-5 lg:text-base lg:hover:bg-salmon-hover"
                 >
                   <WhatsAppIcon />
                   <span>Fale Conosco</span>
@@ -136,7 +154,10 @@ export default function Home() {
         </Wrapper>
       </section>
 
-      <section id="catalogo" className="w-full bg-rose-100 pb-12 pt-48">
+      <section
+        id="catalogo"
+        className="w-full overflow-hidden bg-rose-100 pb-12 pt-48"
+      >
         <Wrapper>
           <h3 className="text-center text-xl font-semibold uppercase text-rose-900 lg:text-2xl">
             Catálogo
@@ -157,7 +178,7 @@ export default function Home() {
                         placeholder="Ex: 020"
                         value={searchValue}
                         onChange={handleInputChange}
-                        onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+                        onKeyDown={handleKeyDown}
                       />
 
                       <button
@@ -232,10 +253,10 @@ export default function Home() {
                 <a
                   href="https://www.google.com/maps/@-21.0991303,-42.182919,3a,75y,273.61h,98.33t/data=!3m6!1e1!3m4!1srhACwZCzanyyj6FPfADQZQ!2e0!7i16384!8i8192?coh=205409&entry=ttu"
                   target="_blank"
-                  className="flex gap-2"
+                  className="flex w-fit gap-2"
                 >
                   <MapPin className="h-6 w-6 text-salmon" />
-                  <p className="text-base text-zinc-600 transition-all duration-300 hover:text-zinc-500">
+                  <p className="text-base text-zinc-600 transition-all duration-300 lg:hover:text-zinc-500">
                     R. Egídio Porcaro, 150
                   </p>
                 </a>
@@ -243,10 +264,10 @@ export default function Home() {
                 <a
                   href="https://www.instagram.com/thalia_confeccoes_mg/"
                   target="_blank"
-                  className="flex gap-2"
+                  className="flex w-fit gap-2"
                 >
                   <Instagram className="h-6 w-6 text-salmon" />
-                  <p className="text-base text-zinc-600 transition-all duration-300 hover:text-zinc-500">
+                  <p className="text-base text-zinc-600 transition-all duration-300 lg:hover:text-zinc-500">
                     @thalia_confeccoes_mg
                   </p>
                 </a>
@@ -255,7 +276,7 @@ export default function Home() {
               <a
                 href="https://wa.me/5532998030079"
                 target="_blank"
-                className="flex max-w-fit items-center gap-2 rounded-full border-2 border-white bg-salmon px-7 py-4 font-medium uppercase text-white transition duration-300 ease-in-out hover:bg-salmon-hover"
+                className="flex max-w-fit items-center gap-2 rounded-full border-2 border-white bg-salmon px-7 py-4 font-medium uppercase text-white transition duration-300 ease-in-out lg:hover:bg-salmon-hover"
               >
                 <WhatsAppIcon />
                 <span>Entre em Contato</span>

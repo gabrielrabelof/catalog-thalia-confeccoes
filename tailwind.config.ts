@@ -25,8 +25,9 @@ const config: Config = {
 
       height: {
         'model-photo': '385px',
+        icon: '18px',
         'contact-photo': '425px',
-        'product-photo': '300px',
+        'product-photo': '325px',
       },
 
       width: {

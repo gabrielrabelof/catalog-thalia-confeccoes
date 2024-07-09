@@ -1,5 +1,7 @@
 import { createDefaultProduct, createOnlineProduct } from './CreateProducts'
 
+import { Wrapper } from '../Wrapper'
+
 import ref001 from '@/assets/pijamas/camisolas/camisola-ref001.png'
 import ref002 from '@/assets/pijamas/camisolas/camisola-ref002.png'
 import ref003 from '@/assets/pijamas/camisolas/camisola-ref003.png'
@@ -29,157 +31,159 @@ import ref019 from '@/assets/pijamas/conjunto/conjunto-ref019.png'
 export function ListProduct() {
   return (
     <div className="flex flex-col gap-32 divide-y divide-zinc-300">
-      <div id="camisola">
-        <h4 className="font-playfair text-5xl font-semibold text-rose-900 lg:text-6xl">
-          Camisola
-        </h4>
+      <Wrapper>
+        <div id="camisola">
+          <h4 className="font-playfair text-5xl font-semibold text-rose-900 lg:text-6xl">
+            Camisola
+          </h4>
 
-        <div className="mt-8 flex flex-wrap gap-5">
-          {createDefaultProduct(ref001, '001')}
-          {createOnlineProduct(
-            ref002,
-            '002',
-            'https://www.mercadolivre.com.br',
-            'https://www.shopee.com.br',
-          )}
-          {createOnlineProduct(
-            ref003,
-            '003',
-            'https://www.mercadolivre.com.br',
-            'https://www.shopee.com.br',
-          )}
+          <div className="mt-8 flex flex-wrap gap-5">
+            {createDefaultProduct(ref001, '001')}
+            {createOnlineProduct(
+              ref002,
+              '002',
+              'https://www.mercadolivre.com.br',
+              'https://www.shopee.com.br',
+            )}
+            {createOnlineProduct(
+              ref003,
+              '003',
+              'https://www.mercadolivre.com.br',
+              'https://www.shopee.com.br',
+            )}
+          </div>
         </div>
-      </div>
 
-      <div id="pescador">
-        <h4 className="mt-28 font-playfair text-5xl font-semibold text-rose-900 lg:text-6xl">
-          Pescador
-        </h4>
+        <div id="pescador">
+          <h4 className="mt-28 font-playfair text-5xl font-semibold text-rose-900 lg:text-6xl">
+            Pescador
+          </h4>
 
-        <div className="mt-8 flex flex-wrap gap-5">
-          {createDefaultProduct(ref004, '004')}
-          {createOnlineProduct(
-            ref005,
-            '005',
-            'https://www.mercadolivre.com.br',
-            'https://www.shopee.com.br',
-          )}
-          {createOnlineProduct(
-            ref006,
-            '006',
-            'https://www.mercadolivre.com.br',
-            'https://www.shopee.com.br',
-          )}
-          {createOnlineProduct(
-            ref007,
-            '007',
-            'https://www.mercadolivre.com.br',
-            'https://www.shopee.com.br',
-          )}
-          {createOnlineProduct(
-            ref008,
-            '008',
-            'https://www.mercadolivre.com.br',
-            'https://www.shopee.com.br',
-          )}
+          <div className="mt-8 flex flex-wrap gap-5">
+            {createDefaultProduct(ref004, '004')}
+            {createOnlineProduct(
+              ref005,
+              '005',
+              'https://www.mercadolivre.com.br',
+              'https://www.shopee.com.br',
+            )}
+            {createOnlineProduct(
+              ref006,
+              '006',
+              'https://www.mercadolivre.com.br',
+              'https://www.shopee.com.br',
+            )}
+            {createOnlineProduct(
+              ref007,
+              '007',
+              'https://www.mercadolivre.com.br',
+              'https://www.shopee.com.br',
+            )}
+            {createOnlineProduct(
+              ref008,
+              '008',
+              'https://www.mercadolivre.com.br',
+              'https://www.shopee.com.br',
+            )}
+          </div>
         </div>
-      </div>
 
-      <div id="infantil">
-        <h4 className="mt-28 font-playfair text-5xl font-semibold text-rose-900 lg:text-6xl">
-          Infantil
-        </h4>
+        <div id="infantil">
+          <h4 className="mt-28 font-playfair text-5xl font-semibold text-rose-900 lg:text-6xl">
+            Infantil
+          </h4>
 
-        <div className="mt-8 flex flex-wrap gap-5">
-          {createDefaultProduct(ref039, '039')}
+          <div className="mt-8 flex flex-wrap gap-5">
+            {createDefaultProduct(ref039, '039')}
+          </div>
         </div>
-      </div>
 
-      <div id="longo">
-        <h4 className="mt-28 font-playfair text-5xl font-semibold text-rose-900 lg:text-6xl">
-          Longo
-        </h4>
+        <div id="longo">
+          <h4 className="mt-28 font-playfair text-5xl font-semibold text-rose-900 lg:text-6xl">
+            Longo
+          </h4>
 
-        <div className="mt-8 flex flex-wrap gap-5">
-          {createDefaultProduct(ref009, '009')}
+          <div className="mt-8 flex flex-wrap gap-5">
+            {createDefaultProduct(ref009, '009')}
+          </div>
         </div>
-      </div>
 
-      <div id="baby-doll">
-        <h4 className="mt-28 font-playfair text-5xl font-semibold text-rose-900 lg:text-6xl">
-          Baby Doll
-        </h4>
+        <div id="baby-doll">
+          <h4 className="mt-28 font-playfair text-5xl font-semibold text-rose-900 lg:text-6xl">
+            Baby Doll
+          </h4>
 
-        <div className="mt-8 flex flex-wrap gap-5">
-          {createOnlineProduct(
-            ref020,
-            '020',
-            'https://www.mercadolivre.com.br',
-            'https://www.shopee.com.br',
-          )}
+          <div className="mt-8 flex flex-wrap gap-5">
+            {createOnlineProduct(
+              ref020,
+              '020',
+              'https://www.mercadolivre.com.br',
+              'https://www.shopee.com.br',
+            )}
+          </div>
         </div>
-      </div>
 
-      <div id="meia-estacao">
-        <h4 className="mt-28 font-playfair text-5xl font-semibold text-rose-900 lg:text-6xl">
-          Meia Estação
-        </h4>
+        <div id="meia-estacao">
+          <h4 className="mt-28 font-playfair text-5xl font-semibold text-rose-900 lg:text-6xl">
+            Meia Estação
+          </h4>
 
-        <div className="mt-8 flex flex-wrap gap-5">
-          {createOnlineProduct(
-            ref010,
-            '010',
-            'https://www.mercadolivre.com.br',
-            'https://www.shopee.com.br',
-          )}
-          {createOnlineProduct(
-            ref011,
-            '011',
-            'https://www.mercadolivre.com.br',
-            'https://www.shopee.com.br',
-          )}
-          {createOnlineProduct(
-            ref012,
-            '012',
-            'https://www.mercadolivre.com.br',
-            'https://www.shopee.com.br',
-          )}
-          {createOnlineProduct(
-            ref013,
-            '013',
-            'https://www.mercadolivre.com.br',
-            'https://www.shopee.com.br',
-          )}
-          {createDefaultProduct(ref014, '014')}
-          {createOnlineProduct(
-            ref015,
-            '015',
-            'https://www.mercadolivre.com.br',
-            'https://www.shopee.com.br',
-          )}
-          {createOnlineProduct(
-            ref016,
-            '016',
-            'https://www.mercadolivre.com.br',
-            'https://www.shopee.com.br',
-          )}
+          <div className="mt-8 flex flex-wrap gap-5">
+            {createOnlineProduct(
+              ref010,
+              '010',
+              'https://www.mercadolivre.com.br',
+              'https://www.shopee.com.br',
+            )}
+            {createOnlineProduct(
+              ref011,
+              '011',
+              'https://www.mercadolivre.com.br',
+              'https://www.shopee.com.br',
+            )}
+            {createOnlineProduct(
+              ref012,
+              '012',
+              'https://www.mercadolivre.com.br',
+              'https://www.shopee.com.br',
+            )}
+            {createOnlineProduct(
+              ref013,
+              '013',
+              'https://www.mercadolivre.com.br',
+              'https://www.shopee.com.br',
+            )}
+            {createDefaultProduct(ref014, '014')}
+            {createOnlineProduct(
+              ref015,
+              '015',
+              'https://www.mercadolivre.com.br',
+              'https://www.shopee.com.br',
+            )}
+            {createOnlineProduct(
+              ref016,
+              '016',
+              'https://www.mercadolivre.com.br',
+              'https://www.shopee.com.br',
+            )}
+          </div>
         </div>
-      </div>
 
-      <div id="conjuntos">
-        <h4 className="mt-28 font-playfair text-5xl font-semibold text-rose-900 lg:text-6xl">
-          Conjuntos
-        </h4>
+        <div id="conjuntos">
+          <h4 className="mt-28 font-playfair text-5xl font-semibold text-rose-900 lg:text-6xl">
+            Conjuntos
+          </h4>
 
-        <div className="mt-8 flex flex-wrap gap-5">
-          {createOnlineProduct(
-            ref019,
-            '019',
-            'https://www.mercadolivre.com.br',
-            'https://www.shopee.com.br',
-          )}
+          <div className="mt-8 flex flex-wrap gap-5">
+            {createOnlineProduct(
+              ref019,
+              '019',
+              'https://www.mercadolivre.com.br',
+              'https://www.shopee.com.br',
+            )}
+          </div>
         </div>
-      </div>
+      </Wrapper>
     </div>
   )
 }

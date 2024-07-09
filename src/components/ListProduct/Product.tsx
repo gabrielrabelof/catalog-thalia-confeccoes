@@ -17,7 +17,7 @@ export function Photo({ path }: ProductImageProps) {
   return (
     <Image
       src={path}
-      className="h-product-photo w-52 rounded-t-lg shadow-sm"
+      className="h-product-photo w-56 rounded-t-lg shadow-sm"
       alt=""
       quality={95}
       loading="lazy"
@@ -30,7 +30,7 @@ type ProductInfoProps = ComponentProps<'div'>
 export function Info(props: ProductInfoProps) {
   return (
     <div
-      className="flex items-center justify-between px-4 py-3"
+      className="flex flex-col items-center justify-between px-4 py-3 lg:flex-row"
       {...props}
     ></div>
   )
@@ -53,14 +53,14 @@ type ProductLinksProps = {
 
 export function Links({ MLLink, ShopeeLink }: ProductLinksProps) {
   return (
-    <div className="flex items-center justify-center gap-2">
+    <div className="flex flex-col items-center justify-center gap-2 lg:flex-row">
       <a
         href={MLLink}
         target="_blank"
-        className="group relative flex items-center justify-center rounded-lg bg-ml-logo p-1.5 shadow-md transition-all duration-500 hover:rounded-l-none hover:shadow-none"
+        className="group relative flex w-full items-center justify-center rounded-lg bg-ml-logo p-1.5 shadow-md transition-all duration-500 lg:hover:rounded-l-none lg:hover:shadow-none"
       >
         <MercadoLivreLogo />
-        <span className="absolute right-full top-1/2 -z-50 min-w-max -translate-y-1/2 transform rounded-l-lg bg-ml-logo p-2.5 text-xs font-semibold text-slate-800 opacity-0 transition-all duration-500 group-hover:z-50 group-hover:translate-x-0 group-hover:opacity-100">
+        <span className="bg-ml-logo p-1.5 text-xs font-semibold text-slate-800 lg:absolute lg:right-full lg:top-1/2 lg:-z-50 lg:min-w-max lg:-translate-y-1/2 lg:transform lg:rounded-l-lg lg:p-2.5 lg:opacity-0 lg:transition-all lg:duration-500 lg:group-hover:z-50 lg:group-hover:translate-x-0 lg:group-hover:opacity-100">
           Ver no Mercado Livre
         </span>
       </a>
@@ -68,9 +68,9 @@ export function Links({ MLLink, ShopeeLink }: ProductLinksProps) {
       <a
         href={ShopeeLink}
         target="_blank"
-        className="group relative flex items-center justify-center rounded-lg bg-zinc-800 p-1.5 shadow-md transition-all duration-500 hover:rounded-r-none hover:shadow-none"
+        className="group relative flex w-full items-center justify-center rounded-lg bg-zinc-800 p-1.5 shadow-md transition-all duration-500 lg:hover:rounded-r-none lg:hover:shadow-none"
       >
-        <span className="absolute left-full top-1/2 -z-50 min-w-max -translate-y-1/2 transform rounded-r-lg bg-zinc-800 p-2.5 text-xs font-semibold text-white opacity-0 transition-all duration-500 group-hover:z-50 group-hover:translate-x-0 group-hover:opacity-100">
+        <span className="bg-zinc-800 p-1.5 text-xs font-semibold text-white lg:absolute lg:left-full lg:top-1/2 lg:-z-50 lg:min-w-max lg:-translate-y-1/2 lg:transform lg:rounded-r-lg lg:p-2.5 lg:opacity-0 lg:transition-all lg:duration-500 lg:group-hover:z-50 lg:group-hover:translate-x-0 lg:group-hover:opacity-100">
           Ver na Shopee
         </span>
         <ShopeeLogo />
