@@ -332,57 +332,55 @@ export default function Home() {
       </section>
 
       <section id="contato" className="w-full bg-red-50 py-36">
-        <RevealWrapper delay={0.2} origin="top" duration={500} distance="30px">
-          <Wrapper>
-            <div className="flex flex-col items-center justify-between gap-6 lg:flex-row">
-              <div className="flex flex-col gap-10">
-                <h1 className="text-4xl font-bold leading-normal text-zinc-800 lg:text-5xl">
-                  Entre em contato <br />
-                  com a gente!
-                </h1>
+        <Wrapper>
+          <div className="flex flex-col items-center justify-between gap-6 lg:flex-row">
+            <div className="flex flex-col gap-10">
+              <h1 className="text-4xl font-bold leading-normal text-zinc-800 lg:text-5xl">
+                Entre em contato <br />
+                com a gente!
+              </h1>
 
-                <div className="flex flex-col gap-4">
-                  <a
-                    href="https://www.google.com/maps/@-21.0991303,-42.182919,3a,75y,273.61h,98.33t/data=!3m6!1e1!3m4!1srhACwZCzanyyj6FPfADQZQ!2e0!7i16384!8i8192?coh=205409&entry=ttu"
-                    target="_blank"
-                    className="flex w-fit gap-2"
-                  >
-                    <MapPin className="h-6 w-6 text-salmon" />
-                    <p className="text-base text-zinc-600 transition-all duration-300 lg:hover:text-zinc-500">
-                      R. Egídio Porcaro, 150
-                    </p>
-                  </a>
-
-                  <a
-                    href="https://www.instagram.com/thalia_confeccoes_mg/"
-                    target="_blank"
-                    className="flex w-fit gap-2"
-                  >
-                    <Instagram className="h-6 w-6 text-salmon" />
-                    <p className="text-base text-zinc-600 transition-all duration-300 lg:hover:text-zinc-500">
-                      @thalia_confeccoes_mg
-                    </p>
-                  </a>
-                </div>
+              <div className="flex flex-col gap-4">
+                <a
+                  href="https://www.google.com/maps/@-21.0991303,-42.182919,3a,75y,273.61h,98.33t/data=!3m6!1e1!3m4!1srhACwZCzanyyj6FPfADQZQ!2e0!7i16384!8i8192?coh=205409&entry=ttu"
+                  target="_blank"
+                  className="flex w-fit gap-2"
+                >
+                  <MapPin className="h-6 w-6 text-salmon" />
+                  <p className="text-base text-zinc-600 transition-all duration-300 lg:hover:text-zinc-500">
+                    R. Egídio Porcaro, 150
+                  </p>
+                </a>
 
                 <a
-                  href="https://wa.me/5532998030079"
+                  href="https://www.instagram.com/thalia_confeccoes_mg/"
                   target="_blank"
-                  className="flex max-w-fit items-center gap-2 rounded-full border-2 border-white bg-salmon px-7 py-4 font-medium uppercase text-white transition duration-300 ease-in-out lg:hover:bg-salmon-hover"
+                  className="flex w-fit gap-2"
                 >
-                  <WhatsAppIcon />
-                  <span>Entre em Contato</span>
+                  <Instagram className="h-6 w-6 text-salmon" />
+                  <p className="text-base text-zinc-600 transition-all duration-300 lg:hover:text-zinc-500">
+                    @thalia_confeccoes_mg
+                  </p>
                 </a>
               </div>
-              <Image
-                src={contacting}
-                className="w-full rounded-md lg:h-contact-photo lg:w-contact-photo"
-                alt=""
-                quality={100}
-              />
+
+              <a
+                href="https://wa.me/5532998030079"
+                target="_blank"
+                className="flex max-w-fit items-center gap-2 rounded-full border-2 border-white bg-salmon px-7 py-4 font-medium uppercase text-white transition duration-300 ease-in-out lg:hover:bg-salmon-hover"
+              >
+                <WhatsAppIcon />
+                <span>Entre em Contato</span>
+              </a>
             </div>
-          </Wrapper>
-        </RevealWrapper>
+            <Image
+              src={contacting}
+              className="w-full rounded-md lg:h-contact-photo lg:w-contact-photo"
+              alt=""
+              quality={100}
+            />
+          </div>
+        </Wrapper>
       </section>
 
       <section className="w-full bg-rose-950 py-14">
