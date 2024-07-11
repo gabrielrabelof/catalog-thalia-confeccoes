@@ -13,8 +13,6 @@
 /.next/
 /out/
 /dist/
-/src/assets/*
-/src/components/svg/ModelPhoto.tsx
 
 # production
 /build
