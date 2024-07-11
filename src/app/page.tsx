@@ -16,13 +16,17 @@ import { WhatsAppIcon } from '@/components/svg/WhatsAppIcon'
 import { Info } from '@/components/Info'
 import { Card } from '@/components/Card'
 import { Filter } from '@/components/Filter'
-import { ListProduct } from '@/components/ListProduct'
+import { ListProductFemale } from '@/components/ListProduct/ListProductFemale'
+import { ListProductMale } from '@/components/ListProduct/ListProductMale'
 import { BackToCatalogButton } from '@/components/BackToTopButton/BackToCatalogButton'
 import { BackToTopButton } from '@/components/BackToTopButton'
 
+export type CatalogGenreStyleProps = 'FEMALE' | 'MALE'
+
 export default function Home() {
   const [searchValue, setSearchValue] = useState('')
-  const [catalog, setCatalog] = useState(true)
+  const [catalogGenre, setCatalogGenre] =
+    useState<CatalogGenreStyleProps>('FEMALE')
 
   function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     const value = event.target.value
@@ -56,11 +60,11 @@ export default function Home() {
   }
 
   function handleCatalogFemale() {
-    setCatalog(true)
+    setCatalogGenre('FEMALE')
   }
 
   function handleCatalogMale() {
-    setCatalog(false)
+    setCatalogGenre('MALE')
   }
 
   return (
@@ -152,11 +156,25 @@ export default function Home() {
 
       <section
         id="catalogo"
-        className="w-full overflow-hidden bg-rose-100 pb-12 pt-48"
+        className={clsx(
+          'w-full overflow-hidden pb-12 pt-48 transition-all duration-300 ease-in-out',
+          {
+            'bg-rose-100': catalogGenre === 'FEMALE',
+            'bg-sky-100': catalogGenre === 'MALE',
+          },
+        )}
       >
         <RevealWrapper delay={0.2} origin="top" duration={500} distance="30px">
           <Wrapper>
-            <h3 className="text-center text-xl font-semibold uppercase text-rose-900 lg:text-2xl">
+            <h3
+              className={clsx(
+                'text-center text-xl font-semibold uppercase transition-all duration-300 ease-in-out lg:text-2xl',
+                {
+                  'text-rose-900': catalogGenre === 'FEMALE',
+                  'text-sky-900': catalogGenre === 'MALE',
+                },
+              )}
+            >
               Catálogo
             </h3>
 
@@ -168,11 +186,23 @@ export default function Home() {
                       Pesquisar Ref.
                     </h4>
                     <div className="mt-2 flex justify-between">
-                      <div className="flex rounded-lg border border-zinc-300 bg-white px-3 py-2 focus-within:border-rose-200 focus-within:ring-2 focus-within:ring-rose-100">
+                      <div
+                        className={clsx(
+                          'flex rounded-lg border border-zinc-300 bg-white px-3 py-2 focus-within:ring-2',
+                          {
+                            'focus-within:border-rose-200 focus-within:ring-rose-100':
+                              catalogGenre === 'FEMALE',
+                            'focus-within:border-sky-200 focus-within:ring-sky-100':
+                              catalogGenre === 'MALE',
+                          },
+                        )}
+                      >
                         <input
                           className="outline-none"
                           type="text"
-                          placeholder="Ex: 020"
+                          placeholder={
+                            catalogGenre === 'FEMALE' ? 'Ex: 028' : 'Ex: 2002'
+                          }
                           value={searchValue}
                           onChange={handleInputChange}
                           onKeyDown={handleKeyDown}
@@ -194,9 +224,9 @@ export default function Home() {
                         className={clsx(
                           'border-b-2 pb-2 text-base font-semibold uppercase transition duration-300 ease-in-out lg:text-lg',
                           {
-                            'text-zinc-500': !catalog,
-                            'text-rose-900': catalog,
-                            'border-b-rose-900': catalog,
+                            'text-zinc-500': catalogGenre !== 'FEMALE',
+                            'text-rose-900': catalogGenre === 'FEMALE',
+                            'border-b-rose-900': catalogGenre === 'FEMALE',
                           },
                         )}
                       >
@@ -209,9 +239,9 @@ export default function Home() {
                         className={clsx(
                           'border-b-2 pb-2 text-base font-semibold uppercase transition duration-300 ease-in-out lg:text-lg',
                           {
-                            'text-zinc-500': catalog,
-                            'text-sky-900': !catalog,
-                            'border-b-sky-900': !catalog,
+                            'text-zinc-500': catalogGenre !== 'MALE',
+                            'text-sky-900': catalogGenre === 'MALE',
+                            'border-b-sky-900': catalogGenre === 'MALE',
                           },
                         )}
                       >
@@ -222,17 +252,80 @@ export default function Home() {
                 </div>
 
                 <div className="mt-4 flex flex-wrap gap-2">
-                  <Filter model="Camisola" targetId="camisola" />
-                  <Filter model="Pescador" targetId="pescador" />
-                  <Filter model="Infantil" targetId="infantil" />
-                  <Filter model="Longo" targetId="longo" />
-                  <Filter model="Baby Doll" targetId="baby-doll" />
-                  <Filter model="Meia Estação" targetId="meia-estacao" />
-                  <Filter model="Conjuntos" targetId="conjuntos" />
+                  {catalogGenre === 'FEMALE' ? (
+                    <>
+                      <Filter
+                        model="Camisola"
+                        targetId="camisola"
+                        gender={catalogGenre}
+                      />
+                      <Filter
+                        model="Pescador"
+                        targetId="pescador"
+                        gender={catalogGenre}
+                      />
+                      <Filter
+                        model="Infantil"
+                        targetId="infantil"
+                        gender={catalogGenre}
+                      />
+                      <Filter
+                        model="Longo"
+                        targetId="longo"
+                        gender={catalogGenre}
+                      />
+                      <Filter
+                        model="Baby Doll"
+                        targetId="baby-doll"
+                        gender={catalogGenre}
+                      />
+                      <Filter
+                        model="Meia Estação"
+                        targetId="meia-estacao"
+                        gender={catalogGenre}
+                      />
+                      <Filter
+                        model="Conjuntos"
+                        targetId="conjuntos"
+                        gender={catalogGenre}
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <Filter
+                        model="Curto"
+                        targetId="curto"
+                        gender={catalogGenre}
+                      />
+                      <Filter
+                        model="Longo"
+                        targetId="longo"
+                        gender={catalogGenre}
+                      />
+                      <Filter
+                        model="Infantil"
+                        targetId="infantil"
+                        gender={catalogGenre}
+                      />
+                      <Filter
+                        model="Meia Estação"
+                        targetId="meia-estacao"
+                        gender={catalogGenre}
+                      />
+                      <Filter
+                        model="Conjuntos"
+                        targetId="conjuntos"
+                        gender={catalogGenre}
+                      />
+                    </>
+                  )}
                 </div>
               </div>
-
-              <ListProduct />
+              {catalogGenre === 'FEMALE' ? (
+                <ListProductFemale />
+              ) : (
+                <ListProductMale></ListProductMale>
+              )}
             </div>
           </Wrapper>
         </RevealWrapper>
